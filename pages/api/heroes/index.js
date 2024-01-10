@@ -8,4 +8,17 @@ export default async function handler(request, response) {
 
     return response.status(200).json(heroes);
   }
+
+  if (request.method === "POST") {
+    try {
+      const heroData = request.body;
+      console.log("🚀  heroData:", heroData);
+      await Hero.create(heroData);
+
+      response.status(200).json({ status: "hero created!" });
+    } catch (error) {
+      console.log(error);
+      response.status(400).json({ error: error.message });
+    }
+  }
 }
