@@ -9,7 +9,7 @@ export default async function handler(request, response) {
     const hero = await Hero.findById(id);
 
     if (!hero) {
-      return response.status(404).json({ status: "Not found" });
+      return response.status(404).json({ status: "Not found HEHEHE" });
     }
 
     response.status(200).json(hero);
